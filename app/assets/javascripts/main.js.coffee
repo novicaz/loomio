@@ -3,9 +3,9 @@ window.Application ||= {}
 # keyboard shortcuts
 $ ->
   $(document).on 'keydown', (event) ->
-    if document.activeElement.tagName not in ['INPUT', 'TEXTAREA', 'SELECT']
+    if document.activeElement.tagName not in ['INPUT', 'TEXTAREA', 'SELECT'] or event.which == 27
       switch event.which
-        when 71 # G for groups search dropdown
+        when 71, 27 # G or ESC for groups search dropdown
           $('#groups>a').click()
           $('#groups').find('.group-dropdown-search').focus()
           event.preventDefault()
